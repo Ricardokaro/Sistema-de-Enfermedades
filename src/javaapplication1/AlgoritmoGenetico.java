@@ -133,7 +133,8 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         double errorPatron[] = new double[10];
 
         for (int p = 0; p < 10; p++) {            
-
+            
+            //estos son los patrones 
             int x[] = sintoma.getFila(p);
             int y[] = enfermedad.getFila(p);
 
