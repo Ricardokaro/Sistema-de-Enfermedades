@@ -15,6 +15,7 @@ import java.text.DecimalFormatSymbols;
 public class Individuo {
    private double matriz[][] = new double[7][4];
    private String matrizBinaria[][] = new String[7][4];
+   private String vectorBinario[] = new String[28];
    public double errorPatron;
    DecimalFormat dec = new DecimalFormat();
   
@@ -27,6 +28,18 @@ public class Individuo {
                 matriz[i][j] = numeroAleatorioDecimales(-1, 1);
             }
         }
+    }
+    
+    public void generarVectorBinario(){
+        for (int k = 0; k < vectorBinario.length; k++) {   
+            
+            for (int i = 0; i < 7; i++) {
+                for (int j = 0; j < 4; j++) {                   
+                    vectorBinario[k] = matrizBinaria[i][j];
+                }
+            }
+            
+        }        
     }
     
     public void generarMatrizBinaria(){       
@@ -105,5 +118,11 @@ public class Individuo {
     public void setErrorPatron(double errorPatron) {
         this.errorPatron = errorPatron;
     } 
+
+    public String[] getVectorBinario() {
+        return vectorBinario;
+    }
+    
+    
     
 }
