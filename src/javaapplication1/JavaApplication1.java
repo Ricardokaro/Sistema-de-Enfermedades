@@ -25,7 +25,8 @@ public class JavaApplication1 {
        for (int i = 1; i < 11; i++) {
           Individuo ind = new Individuo();
           ind.generarMatrizAleatoria();  
-          ind.generarMatrizBinaria();          
+          ind.generarMatrizBinaria();
+          ind.generarVectorBinario();
           mustra.add(ind);     
        }  
         

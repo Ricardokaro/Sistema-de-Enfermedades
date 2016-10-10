@@ -30,16 +30,14 @@ public class Individuo {
         }
     }
     
-    public void generarVectorBinario(){
-        for (int k = 0; k < vectorBinario.length; k++) {   
-            
+    public void generarVectorBinario(){        
+            int k=0;
             for (int i = 0; i < 7; i++) {
                 for (int j = 0; j < 4; j++) {                   
                     vectorBinario[k] = matrizBinaria[i][j];
+                    k++;
                 }
-            }
-            
-        }        
+            }  
     }
     
     public void generarMatrizBinaria(){       
@@ -56,6 +54,16 @@ public class Individuo {
                
             }
         }
+    }
+    
+    public void convertirVectoraMatriz(){
+        int k=0;
+            for (int i = 0; i < 7; i++) {
+                for (int j = 0; j < 4; j++) {                   
+                      matrizBinaria[i][j] = vectorBinario[k];
+                    k++;
+                }
+            }  
     }
     
     public String quitarSigno(double numero){
@@ -121,6 +129,10 @@ public class Individuo {
 
     public String[] getVectorBinario() {
         return vectorBinario;
+    }
+
+    public void setVectorBinario(String[] vectorBinario) {
+        this.vectorBinario = vectorBinario;        
     }
     
     

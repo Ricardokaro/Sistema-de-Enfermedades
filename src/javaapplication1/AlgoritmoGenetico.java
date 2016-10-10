@@ -121,13 +121,17 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
             Individuo ind = new Individuo();
             ind.generarMatrizAleatoria();
             ind.generarMatrizBinaria();
+            ind.generarVectorBinario();
             mustra.add(ind);
             // JOptionPane.showMessageDialog(null," individuo "+i);
         }
+        
+        //System.out.println(mustra.get(0).getMatriz()[0][0]);
 
         Sintoma sintoma = new Sintoma();
         Enfermedad enfermedad = new Enfermedad();
         Sigmoide sigmoide = new Sigmoide();
+        Cruce cruce;
         double yc[] = new double[4];
         double error[] = new double[4];
         double errorPatron[] = new double[10];
@@ -172,6 +176,8 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
             });
 
             errorPatron[p] = mustra.get(0).getErrorPatron();
+            cruce = new Cruce(numeroDeIndividios, mustra);
+            mustra = cruce.nuevaGenaracion();           
             //graficarErrorPatron(errorPatron);
             graficarErrorPatron(errorPatron);           
 
