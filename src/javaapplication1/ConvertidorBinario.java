@@ -1,7 +1,7 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template  * and open the template in the editor.
+file, choose Tools | Templates
  */
 package javaapplication1;
 
@@ -51,7 +51,7 @@ public class ConvertidorBinario {
             acumula += separarParteEntera(Double.toString(multiplicacion));
             numeroDeDecimales++;
             
-        }while(multiplicacion !=1 &&  numeroDeDecimales < 18);        
+        }while(multiplicacion !=1 &&  numeroDeDecimales < 57);        
         
         return acumula;
     }
@@ -75,8 +75,8 @@ public class ConvertidorBinario {
        String resultadoBinario = inverteCadana(acumulaResultado);
        String binario = resultadoBinario+"."+concatenaConEntero;
         
-        if(binario.length() < 20){
-            for (int i = binario.length()-1; i < 19; i++) {
+        if(binario.length() < 57){
+            for (int i = binario.length()-1; i < 57; i++) {
                 binario += "0";     
             }
         } 

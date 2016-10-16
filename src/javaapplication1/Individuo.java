@@ -16,7 +16,7 @@ public class Individuo {
    private double matriz[][] = new double[7][4];
    private String matrizBinaria[][] = new String[7][4];
    private String vectorBinario[] = new String[28];
-   public double errorPatron;
+   private double errorPatron;
    DecimalFormat dec = new DecimalFormat();
   
   
@@ -38,6 +38,15 @@ public class Individuo {
                     k++;
                 }
             }  
+    }
+    
+    public void generarMatrizBinariaaDecimal(){
+        ConvertiraDecimal decimal=new ConvertiraDecimal();
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = tresDecimales(decimal.binarioDecimal(matrizBinaria[i][j]));
+            }
+        }
     }
     
     public void generarMatrizBinaria(){       
@@ -95,16 +104,19 @@ public class Individuo {
         return valor;
     }
     
-    public double numeroAleatorioDecimales(int min, int max) {
-        
-        DecimalFormat dec = new DecimalFormat("0.000");
-        DecimalFormatSymbols dfs = dec.getDecimalFormatSymbols();
-        dfs.setDecimalSeparator('.');
-        dec.setDecimalFormatSymbols(dfs);        
+    public double numeroAleatorioDecimales(int min, int max) {             
         double numAleatorio;
         double  num = Math.random() * (max - min);
         numAleatorio = num + min;
         //System.out.println(dec.format(numAleatorio));
+        return tresDecimales(numAleatorio);
+    }
+    
+    public double tresDecimales(double numAleatorio){
+        DecimalFormat dec = new DecimalFormat("0.000");
+        DecimalFormatSymbols dfs = dec.getDecimalFormatSymbols();
+        dfs.setDecimalSeparator('.');
+        dec.setDecimalFormatSymbols(dfs); 
         return Double.valueOf(dec.format(numAleatorio));
     }
 

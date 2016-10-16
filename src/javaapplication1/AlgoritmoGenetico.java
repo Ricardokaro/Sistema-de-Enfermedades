@@ -27,12 +27,9 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
     /**
      * Creates new form AlgoritmoGenetico
      */
-   
-    
+    public AlgoritmoGenetico() {
+        initComponents();
 
-    public AlgoritmoGenetico() {        
-        initComponents();   
-        
     }
 
     /**
@@ -49,7 +46,10 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         errorDeConvergencia = new javax.swing.JTextField();
         btnIniciar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        numeroDeIteraciontxt = new javax.swing.JTextField();
         panel1 = new javax.swing.JPanel();
+        panel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,8 +64,13 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
             }
         });
 
-        panel1.setBackground(new java.awt.Color(51, 51, 255));
+        jLabel3.setText("Numero de Iteraciones ");
+
+        panel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Error por patron"));
         panel1.setLayout(new java.awt.BorderLayout());
+
+        panel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Error por Iteracion"));
+        panel2.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,40 +79,54 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(errorDeConvergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(numeroDeIndividuostext, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(100, 100, 100)
+                        .addComponent(btnIniciar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btnIniciar)))
-                .addGap(33, 33, 33)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(498, Short.MAX_VALUE))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(numeroDeIteraciontxt))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(errorDeConvergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(numeroDeIndividuostext, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(38, 38, 38)
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(numeroDeIndividuostext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(errorDeConvergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addComponent(btnIniciar))
-                    .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(numeroDeIndividuostext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(errorDeConvergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(numeroDeIteraciontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addComponent(btnIniciar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
+                .addGap(113, 113, 113))
         );
 
         pack();
@@ -123,11 +142,13 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
             ind.generarMatrizBinaria();
             ind.generarVectorBinario();
             mustra.add(ind);
+            //mostrarEnConsola(ind.getMatriz());
+            //mostrarMatrizBinaria(ind.getMatrizBinaria());
+
             // JOptionPane.showMessageDialog(null," individuo "+i);
         }
-        
-        //System.out.println(mustra.get(0).getMatriz()[0][0]);
 
+        //System.out.println(mustra.get(0).getMatriz()[0][0]);
         Sintoma sintoma = new Sintoma();
         Enfermedad enfermedad = new Enfermedad();
         Sigmoide sigmoide = new Sigmoide();
@@ -135,79 +156,158 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         double yc[] = new double[4];
         double error[] = new double[4];
         double errorPatron[] = new double[10];
+        double errorIteracion[] = new double[Integer.parseInt(numeroDeIteraciontxt.getText())];
+        
+        boolean bandera=true;
+        int it = 0;
+        do {
+            for (int p = 0; p < 10; p++) {
 
-        for (int p = 0; p < 10; p++) {            
-            
-            //estos son los patrones 
-            int x[] = sintoma.getFila(p);
-            int y[] = enfermedad.getFila(p);
+                //estos son los patrones 
+                int x[] = sintoma.getFila(p);
+                int y[] = enfermedad.getFila(p);
 
-            for (Individuo indi : mustra) {
+                for (Individuo indi : mustra) {
 
-                double R[][] = indi.getMatriz();
-                double suma = 0;
-                double sumaError = 0;
+                    double R[][] = indi.getMatriz();
+                    double suma = 0;
+                    double sumaError = 0;
+                    if (indi.getErrorPatron() == 0) {
+                        for (int i = 0; i < 4; i++) {
 
-                for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 7; j++) {
+                                double aux = x[j] * R[j][i];
+                                suma += aux;
+                            }
+                            yc[i] = sigmoide.function(suma);
 
-                    for (int j = 0; j < 7; j++) {
-                        double aux = x[j] * R[j][i];
-                        suma += aux;
+                            suma = 0;
+                            error[i] = y[i] - yc[i];
+                        }
+
+                        for (int i = 0; i < error.length; i++) {
+                            sumaError += Math.abs(error[i]);
+                        }
+
+                        indi.setErrorPatron(sumaError / 4);
                     }
-                    yc[i] = sigmoide.function(suma);
-
-                    suma = 0;
-                    error[i] = y[i] - yc[i];
                 }
 
-                for (int i = 0; i < error.length; i++) {
-                    sumaError += Math.abs(error[i]);
+                //Ordenar de menor a mayor para obtener los mejores individuos para la reproduccion 
+                Collections.sort(mustra, new Comparator<Individuo>() {
+                    @Override
+                    public int compare(Individuo p1, Individuo p2) {
+                        // Aqui esta el truco, ahora comparamos p2 con p1 y no al reves como antes
+                        return new Double(p1.getErrorPatron()).compareTo(new Double(p2.getErrorPatron()));
+                    }
+                });
+
+                System.out.println("/////////////////////////////////////////////////////////7");
+
+                errorPatron[p] = mustra.get(0).getErrorPatron();
+                cruce = new Cruce(numeroDeIndividios, mustra);
+                mustra = cruce.nuevaGenaracion();
+                graficarErrorPatron(errorPatron);
+
+            }
+
+            errorIteracion[it] = errorIteracion(errorPatron);
+            graficarErrorIteracion(errorIteracion);
+            it++;
+            
+            if(it >= Integer.parseInt(numeroDeIteraciontxt.getText())){
+                bandera = false;
+            }else{
+                if(errorIteracion[it-1] <= Double.parseDouble(errorDeConvergencia.getText())){
+                    bandera = false;
                 }
-                indi.setErrorPatron(sumaError / 4);
             }
             
-            //Ordenar de menor a mayor para obtener los mejores individuos para la reproduccion 
-            Collections.sort(mustra, new Comparator<Individuo>() {
-                @Override
-                public int compare(Individuo p1, Individuo p2) {
-                    // Aqui esta el truco, ahora comparamos p2 con p1 y no al reves como antes
-                    return new Double(p2.getErrorPatron()).compareTo(new Double(p1.getErrorPatron()));
-                }
-            });
-
-            errorPatron[p] = mustra.get(0).getErrorPatron();
-            cruce = new Cruce(numeroDeIndividios, mustra);
-            mustra = cruce.nuevaGenaracion();           
-            //graficarErrorPatron(errorPatron);
-            graficarErrorPatron(errorPatron);           
-
-        }
+        } while (bandera);
+        
+        if(errorIteracion[it-1] <= Double.parseDouble(errorDeConvergencia.getText())){
+            JOptionPane.showConfirmDialog(null, "Encontro Individuo mas apto con un error de: "+mustra.get(0).getErrorPatron());
+        }else{
+            JOptionPane.showMessageDialog(null, "convergio...");
+        }       
+        
     }//GEN-LAST:event_btnIniciarActionPerformed
-    
-    public void graficarErrorPatron(double[] errorPatron) {       
-        
-        //Fuentes de datos       
 
+    public double errorIteracion(double[] errorPatron) {
+        double suma = 0;
+        for (int i = 0; i < errorPatron.length; i++) {
+            suma += errorPatron[i];
+        }
+        return suma / 10;
+    }
+
+    public void graficarErrorPatron(double[] errorPatron) {
+
+        //Fuentes de datos       
         DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
-        
-        for (int i = 0; i < errorPatron.length; i++) {           
-            
+
+        for (int i = 0; i < errorPatron.length; i++) {
+
             line_chart_dataset.setValue(errorPatron[i], "Error", String.valueOf(i + 1));
         }
 
-         // Creando el Grafico
+        // Creando el Grafico
         JFreeChart chart = ChartFactory.createLineChart("Errores por patron",
-                "patrones","Errores",line_chart_dataset,PlotOrientation.VERTICAL,
-                true,true,false);  
-        
+                "patrones", "Errores", line_chart_dataset, PlotOrientation.VERTICAL,
+                true, true, false);
+
         // Mostrar Grafico
-        ChartPanel chartPanel = new ChartPanel(chart);        
+        ChartPanel chartPanel = new ChartPanel(chart);
         panel1.removeAll();
-        panel1.add(chartPanel,BorderLayout.CENTER);
+        panel1.add(chartPanel, BorderLayout.CENTER);
         panel1.validate();
-        
-        
+
     }
+
+    public void graficarErrorIteracion(double[] errorPatron) {
+        
+               
+        //Fuentes de datos       
+        DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
+
+        for (int i = 0; i < errorPatron.length; i++) {
+            if(errorPatron[i] !=0){
+                line_chart_dataset.setValue(errorPatron[i], "Error", String.valueOf(i + 1));
+                line_chart_dataset.setValue(0.1, "Error de convergencia", String.valueOf(i + 1));
+            }
+        }
+
+        // Creando el Grafico
+        JFreeChart chart = ChartFactory.createLineChart("Errores por Iteracion",
+                "Iteracion", "Error Iteracion", line_chart_dataset, PlotOrientation.VERTICAL,
+                true, true, false);
+
+        // Mostrar Grafico
+        ChartPanel chartPanel = new ChartPanel(chart);
+        panel2.removeAll();
+        panel2.add(chartPanel, BorderLayout.CENTER);
+        panel2.validate();
+
+    }
+
+    private void mostrarEnConsola(double numeros[][]) {
+        for (int i = 0; i < numeros.length; i++) {
+            for (int j = 0; j < numeros[i].length; j++) {
+                System.out.println(numeros[i][j] + " ");
+            }
+            System.out.println("");
+        }
+    }
+
+    private void mostrarMatrizBinaria(String numeros[][]) {
+        for (int i = 0; i < numeros.length; i++) {
+            for (int j = 0; j < numeros[i].length; j++) {
+                System.out.println(numeros[i][j] + " ");
+            }
+            System.out.println("");
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -248,7 +348,10 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
     private javax.swing.JTextField errorDeConvergencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField numeroDeIndividuostext;
+    private javax.swing.JTextField numeroDeIteraciontxt;
     private javax.swing.JPanel panel1;
+    private javax.swing.JPanel panel2;
     // End of variables declaration//GEN-END:variables
 }
