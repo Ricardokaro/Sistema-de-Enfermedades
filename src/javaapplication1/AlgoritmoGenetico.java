@@ -6,9 +6,12 @@
 package javaapplication1;
 
 import java.awt.BorderLayout;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -226,7 +229,17 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         } while (bandera);
         
         if(errorIteracion[it-1] <= Double.parseDouble(errorDeConvergencia.getText())){
-            JOptionPane.showConfirmDialog(null, "Encontro Individuo mas apto con un error de: "+mustra.get(0).getErrorPatron());
+            int s = JOptionPane.showConfirmDialog(null, "Encontro Individuo mas apto con un error de: "+mustra.get(0).getErrorPatron());
+            if(s==0){
+                db conexion;
+                try {
+                    conexion = new db();
+                    individuoDAO indDao = new individuoDAO(conexion);
+                    indDao.insert(mustra.get(0));
+                } catch (SQLException ex) {
+                    Logger.getLogger(AlgoritmoGenetico.class.getName()).log(Level.SEVERE, null, ex);
+                }              
+            }
         }else{
             JOptionPane.showMessageDialog(null, "convergio...");
         }       

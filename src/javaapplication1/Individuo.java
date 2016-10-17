@@ -146,6 +146,10 @@ public class Individuo {
     public void setVectorBinario(String[] vectorBinario) {
         this.vectorBinario = vectorBinario;        
     }
+
+    public void setMatriz(double[][] matriz) {
+        this.matriz = matriz;
+    }
     
     
     
