@@ -53,6 +53,7 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         numeroDeIteraciontxt = new javax.swing.JTextField();
         panel1 = new javax.swing.JPanel();
         panel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,15 +76,19 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         panel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Error por Iteracion"));
         panel2.setLayout(new java.awt.BorderLayout());
 
+        jButton1.setText("ir a la Simulacion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(btnIniciar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -99,12 +104,19 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addGap(18, 18, 18)
-                                    .addComponent(numeroDeIndividuostext, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(numeroDeIndividuostext, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(btnIniciar)))
                 .addGap(38, 38, 38)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(542, 542, 542))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +141,9 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
-                .addGap(113, 113, 113))
+                .addGap(35, 35, 35)
+                .addComponent(jButton1)
+                .addGap(55, 55, 55))
         );
 
         pack();
@@ -236,6 +250,7 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
                     conexion = new db();
                     individuoDAO indDao = new individuoDAO(conexion);
                     indDao.insert(mustra.get(0));
+                    
                 } catch (SQLException ex) {
                     Logger.getLogger(AlgoritmoGenetico.class.getName()).log(Level.SEVERE, null, ex);
                 }              
@@ -245,6 +260,15 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         }       
         
     }//GEN-LAST:event_btnIniciarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {        
+            new FormularioDiagnostico().setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(AlgoritmoGenetico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public double errorIteracion(double[] errorPatron) {
         double suma = 0;
@@ -274,6 +298,7 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         panel1.removeAll();
         panel1.add(chartPanel, BorderLayout.CENTER);
         panel1.validate();
+        
 
     }
 
@@ -359,6 +384,7 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
     private javax.swing.JTextField errorDeConvergencia;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

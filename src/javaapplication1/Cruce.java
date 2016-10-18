@@ -94,7 +94,7 @@ public class Cruce {
     
     private String mutar(String cadena) {
         
-        int genMutar[] = new int[15];
+        int genMutar[] = new int[5];
         for (int j = 0; j < genMutar.length; j++) {
             int aux = numeroAleatorioPunto();
             if (j == 0) {

@@ -5,6 +5,13 @@
  */
 package javaapplication1;
 
+import java.awt.BorderLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ricardo
@@ -14,8 +21,22 @@ public class FormularioDiagnostico extends javax.swing.JFrame {
     /**
      * Creates new form FormularioDiagnostico
      */
-    public FormularioDiagnostico() {
+    db conexion;
+    private modelJTIndividuos modeloTabla = new modelJTIndividuos();
+    Individuo ind;
+
+    private void inicializar() throws SQLException {
+        conexion = new db();
+        individuoDAO indDAO = new individuoDAO(conexion);
+        modeloTabla.setLstdatos(indDAO.getRecords());
+        this.tbIndividuo.setModel(modeloTabla);
+        diagnosticarTxt.setVisible(false);
+
+    }
+
+    public FormularioDiagnostico() throws SQLException {
         initComponents();
+        inicializar();
     }
 
     /**
@@ -27,22 +48,405 @@ public class FormularioDiagnostico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        cedulaTxt = new javax.swing.JTextField();
+        nombreTxt = new javax.swing.JTextField();
+        apellidoTxt = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        fiebreChecbox = new javax.swing.JCheckBox();
+        congestionChecbox = new javax.swing.JCheckBox();
+        dolorDeCabezaChecbox = new javax.swing.JCheckBox();
+        tosChecbox = new javax.swing.JCheckBox();
+        escalofrioChecbox = new javax.swing.JCheckBox();
+        debilidadChecbox = new javax.swing.JCheckBox();
+        broteChecbox = new javax.swing.JCheckBox();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbIndividuo = new javax.swing.JTable();
+        diagnosticarTxt = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        nombreEnfermedadTxt = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Personales"));
+
+        jLabel1.setText("CEDULA");
+
+        jLabel2.setText("NOMBRE");
+
+        jLabel3.setText("APELLIDO");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(cedulaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(nombreTxt))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(apellidoTxt)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cedulaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(nombreTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(apellidoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Sintomas"));
+
+        jLabel4.setText("FIEBRE");
+
+        jLabel5.setText("CONGESTION");
+
+        jLabel6.setText("DOLOR DE CABEZA");
+
+        jLabel7.setText("TOS");
+
+        jLabel8.setText("ESCALOFRIO");
+
+        jLabel9.setText("DEBILIDAD");
+
+        jLabel10.setText("BROTE");
+
+        jLabel11.setText("MARQUE SI PRESENTA EL SINTOMA");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
+                                .addGap(113, 113, 113)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(congestionChecbox)
+                                    .addComponent(dolorDeCabezaChecbox)
+                                    .addComponent(tosChecbox)
+                                    .addComponent(escalofrioChecbox)
+                                    .addComponent(debilidadChecbox)
+                                    .addComponent(broteChecbox))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel11)))
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(fiebreChecbox)
+                        .addGap(92, 92, 92))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4))
+                            .addComponent(fiebreChecbox))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5))
+                    .addComponent(congestionChecbox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(dolorDeCabezaChecbox))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(tosChecbox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(escalofrioChecbox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(debilidadChecbox))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(broteChecbox))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Individuo mas apto"));
+
+        tbIndividuo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbIndividuo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbIndividuoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbIndividuo);
+
+        diagnosticarTxt.setText("Diagnosticar");
+        diagnosticarTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diagnosticarTxtActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(126, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(diagnosticarTxt)
+                        .addGap(218, 218, 218))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(diagnosticarTxt)
+                .addGap(18, 18, 18))
+        );
+
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Enfermedad del paciente"));
+
+        nombreEnfermedadTxt.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nombreEnfermedadTxt)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(nombreEnfermedadTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(349, 349, 349))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tbIndividuoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbIndividuoMouseClicked
+        ind = modeloTabla.getFila(tbIndividuo.getSelectedRow());
+        diagnosticarTxt.setVisible(true);
+        
+    }//GEN-LAST:event_tbIndividuoMouseClicked
+
+    private void diagnosticarTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosticarTxtActionPerformed
+
+        int x[] = new int[7];
+        if (fiebreChecbox.isSelected()) {
+            x[0] = 1;
+        } else {
+            x[0] = 0;
+        }
+
+        if (congestionChecbox.isSelected()) {
+            x[1] = 1;
+        } else {
+            x[1] = 0;
+        }
+
+        if (dolorDeCabezaChecbox.isSelected()) {
+            x[2] = 1;
+        } else {
+            x[2] = 0;
+        }
+
+        if (tosChecbox.isSelected()) {
+            x[3] = 1;
+        } else {
+            x[3] = 0;
+        }
+
+        if (escalofrioChecbox.isSelected()) {
+            x[4] = 1;
+        } else {
+            x[4] = 0;
+        }
+
+        if (debilidadChecbox.isSelected()) {
+            x[5] = 1;
+        } else {
+            x[5] = 0;
+        }
+
+        if (broteChecbox.isSelected()) {
+            x[6] = 1;
+        } else {
+            x[6] = 0;
+        }
+        
+        Sigmoide sigmoide = new Sigmoide();
+        double suma = 0;
+        double yc[] = new double[4];
+        double R[][] = ind.getMatriz();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 7; j++) {
+               double aux = x[j] * R[j][i];
+               System.out.println("individuo: "+R[j][i]);
+               suma += aux;
+            }
+            yc[i] = sigmoide.function(suma);
+        }
+        
+        String[] enfermedades = new String[4];  
+        for (int i = 0; i < 4; i++) {
+            System.out.println(yc[i]+"-"+enfermedadQuePresenta(yc[i]));
+            if(i==0 && enfermedadQuePresenta(yc[i])==1){
+                enfermedades[i]="chikunguña";
+            }else{
+                if(i==1 && enfermedadQuePresenta(yc[i])==1){
+                   enfermedades[i]="Dengue"; 
+                }else{
+                    if(i==2 && enfermedadQuePresenta(yc[i])==1){
+                        enfermedades[i]="Gripa";
+                    }else{
+                        if(i==3 && enfermedadQuePresenta(yc[i])==1){
+                            enfermedades[i]="Resfriado";
+                        }
+                    }
+                }
+            }
+        }
+        
+        String cadena="";
+        for (int i = 0; i < 4; i++) {
+            if(enfermedades[i]!=null){
+                 cadena +=" "+enfermedades[i]+",";
+            }         
+        } 
+        nombreEnfermedadTxt.setText(nombreTxt.getText()+" presenta: "+cadena+" Como Posibles enfermedades");
+
+    }//GEN-LAST:event_diagnosticarTxtActionPerformed
+
+    public int enfermedadQuePresenta(double yc){
+        String cadena = String.valueOf(yc);
+        int resul;
+        int num = Integer.parseInt(""+cadena.charAt(2));
+        System.out.println("dadadad: "+ num);
+        if( num > 5){
+            resul = 1;
+        }else{
+            resul=0;
+        }
+        return resul;        
+    }
     /**
      * @param args the command line arguments
      */
@@ -73,11 +477,45 @@ public class FormularioDiagnostico extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormularioDiagnostico().setVisible(true);
+                try {
+                    new FormularioDiagnostico().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(FormularioDiagnostico.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField apellidoTxt;
+    private javax.swing.JCheckBox broteChecbox;
+    private javax.swing.JTextField cedulaTxt;
+    private javax.swing.JCheckBox congestionChecbox;
+    private javax.swing.JCheckBox debilidadChecbox;
+    private javax.swing.JButton diagnosticarTxt;
+    private javax.swing.JCheckBox dolorDeCabezaChecbox;
+    private javax.swing.JCheckBox escalofrioChecbox;
+    private javax.swing.JCheckBox fiebreChecbox;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nombreEnfermedadTxt;
+    private javax.swing.JTextField nombreTxt;
+    private javax.swing.JTable tbIndividuo;
+    private javax.swing.JCheckBox tosChecbox;
     // End of variables declaration//GEN-END:variables
 }
