@@ -219,7 +219,7 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
                     }
                 });
 
-                System.out.println("/////////////////////////////////////////////////////////7");
+                System.out.println("//////////////Cargando////////////////////////////");
 
                 errorPatron[p] = mustra.get(0).getErrorPatron();
                 cruce = new Cruce(numeroDeIndividios, mustra);
@@ -311,7 +311,7 @@ public class AlgoritmoGenetico extends javax.swing.JFrame {
         for (int i = 0; i < errorPatron.length; i++) {
             if(errorPatron[i] !=0){
                 line_chart_dataset.setValue(errorPatron[i], "Error", String.valueOf(i + 1));
-                line_chart_dataset.setValue(0.1, "Error de convergencia", String.valueOf(i + 1));
+                line_chart_dataset.setValue(Double.valueOf(errorDeConvergencia.getText()), "Error de convergencia", String.valueOf(i + 1));
             }
         }
 
